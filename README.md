@@ -7,7 +7,7 @@
 <body>
 <h1>Coronavirus update</h1>
 <p>a page that gives u information about cases,deaths</p>
-<p>you can test the project at:</p>
+<p>you can test the project at: https://coronavirus-update1.herokuapp.com/</p>
 <h1>Example of countries that are Available:</h1>
 <table class="table">
     <thead class="thead-dark">
