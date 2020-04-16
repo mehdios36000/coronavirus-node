@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>coronavirus update</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a class="navbar-brand">Coronavirus update</a>
+           
+          </nav>
+            <div id="layoutSidenav_content">
+              <main>
+                  
+                      <div class="card mb-4">
+                          <div class="card-body">
+                              <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Country</th>
+                                      <th scope="col">Date</th>
+                                      <th scope="col">Confirmed</th>
+                                      <th scope="col">recovered</th>
+                                      <th scope="col">deaths</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <% 
+                                    for (const [key, value] of Object.entries(body)) {
+                                      for(var i=0;i<body[`${key}`].length;i++){
+                  
+                                    %> 
+                                    <tr>
+                                      <td><%= key %></td>
+                                      <td><%= body[`${key}`][i].date%></td>
+                                      <td><%= body[`${key}`][i].confirmed%></td>
+                                      <td><%= body[`${key}`][i].recovered%></td>
+                                      <td><%= body[`${key}`][i].deaths%></td>
+                                      </tr>
+                                 <% }}; %>
+                                  
+                                  </tbody>
+                                </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </main>
+          
+      
+         
+           
+            
+          <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script >/*!
+          * Start Bootstrap - SB Admin v6.0.0 (https://startbootstrap.com/templates/sb-admin)
+          * Copyright 2013-2020 Start Bootstrap
+          * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/LICENSE)
+          */
+          (function($) {
+          "use strict";
+      
+          // Add active state to sidbar nav links
+          var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+              $("#layoutSidenav_nav .sb-sidenav a.nav-link").each(function() {
+                  if (this.href === path) {
+                      $(this).addClass("active");
+                  }
+              });
+      
+          // Toggle the side navigation
+          $("#sidebarToggle").on("click", function(e) {
+              e.preventDefault();
+              $("body").toggleClass("sb-sidenav-toggled");
+          });
+      })(jQuery);</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script>// Set new default font family and font color to mimic Bootstrap's default styling
+          Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+          Chart.defaults.global.defaultFontColor = '#292b2c';
+          
+          // Area Chart Example
+          var ctx = document.getElementById("myAreaChart");
+          var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
+              datasets: [{
+                label: "Sessions",
+                lineTension: 0.3,
+                backgroundColor: "rgba(2,117,216,0.2)",
+                borderColor: "rgba(2,117,216,1)",
+                pointRadius: 5,
+                pointBackgroundColor: "rgba(2,117,216,1)",
+                pointBorderColor: "rgba(255,255,255,0.8)",
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                pointHitRadius: 50,
+                pointBorderWidth: 2,
+                data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+              }],
+            },
+            options: {
+              scales: {
+                xAxes: [{
+                  time: {
+                    unit: 'date'
+                  },
+                  gridLines: {
+                    display: false
+                  },
+                  ticks: {
+                    maxTicksLimit: 7
+                  }
+                }],
+                yAxes: [{
+                  ticks: {
+                    min: 0,
+                    max: 40000,
+                    maxTicksLimit: 5
+                  },
+                  gridLines: {
+                    color: "rgba(0, 0, 0, .125)",
+                  }
+                }],
+              },
+              legend: {
+                display: false
+              }
+            }
+          });</script>
+        <script>// Set new default font family and font color to mimic Bootstrap's default styling
+          Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+          Chart.defaults.global.defaultFontColor = '#292b2c';
+          
+          // Bar Chart Example
+          var ctx = document.getElementById("myBarChart");
+          var myLineChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ["January", "February", "March", "April", "May", "June"],
+              datasets: [{
+                label: "Revenue",
+                backgroundColor: "rgba(2,117,216,1)",
+                borderColor: "rgba(2,117,216,1)",
+                data: [4215, 5312, 6251, 7841, 9821, 14984],
+              }],
+            },
+            options: {
+              scales: {
+                xAxes: [{
+                  time: {
+                    unit: 'month'
+                  },
+                  gridLines: {
+                    display: false
+                  },
+                  ticks: {
+                    maxTicksLimit: 6
+                  }
+                }],
+                yAxes: [{
+                  ticks: {
+                    min: 0,
+                    max: 15000,
+                    maxTicksLimit: 5
+                  },
+                  gridLines: {
+                    display: true
+                  }
+                }],
+              },
+              legend: {
+                display: false
+              }
+            }
+          });</script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script>// Call the dataTables jQuery plugin
+          $(document).ready(function() {
+            $('#dataTable').DataTable();
+          });</script>
+    </body>
+</html>
