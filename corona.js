@@ -1,6 +1,7 @@
 const request=require('request');
 var express=require('express');
 var app=express();
+var port=process.env.PORT||8000;
 app.set('view engine','ejs');
 request({
     url:'https://pomber.github.io/covid19/timeseries.json',
@@ -11,7 +12,7 @@ app.get('/',function(req,res){
 })
 
 });
-app.listen(process.env.PORT);
+app.listen(port);
 
 
 
